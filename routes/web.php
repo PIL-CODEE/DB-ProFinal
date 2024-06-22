@@ -9,5 +9,7 @@ Route::get('/desactivar_clase/{id}', [ClassesController::class, 'deactivate'])->
 Route::get('/activar_clase/{id}', [ClassesController::class, 'activate'])->name('administrador.activar-estado');
 Route::get('/registrar_clase', [ClassesController:: class, 'classcreate'])->name('administrador.register-class');
 Route::post('/crear_clase', [ClassesController:: class, 'createclass'])->name('administrador.create-class');
-Route::get('/editar_clase', [ClassesController:: class, 'updateclass'])->name('administrador.edit-class');
+Route::get('/editar_clase/{id}', [ClassesController:: class, 'editclass'])->name('administrador.edit-class');
+Route::post('/modificar_clase/{id}', [ClassesController:: class, 'updateclass'])->name('administrador.update-class');
+
 

@@ -8,8 +8,6 @@
 <body>
     <header>
         <a href="{{route('administrador.register-class')}}"><b>Registrar clase de tenis</b></a>
-        <a href="{{route('administrador.edit-class')}}"><b>Modificar clase de tenis</b></a>
-
     </header>
     <h2>Clases ACTIVAS</h2>
     <table>
@@ -26,6 +24,7 @@
                 <th>HORA FIN</th>
                 <th>CONSTO DE INSCRIPCIÓN</th>
                 <th>ESTADO</th>
+                <th></th>
                 <th></th>
                 <th></th>
             </tr>   

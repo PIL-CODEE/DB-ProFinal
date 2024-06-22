@@ -85,11 +85,35 @@ class ClassesController extends Controller
         return redirect()->route('administrador.clases');
     }
 
-    public function updateclass()
+    public function editclass($id)
     {
-        $clases = Clase::all();
+        $clases = Clase::all()->where('id', $id);
+    
+        $categorias = Categoria::all();
+        
+        $data = [
+            'clases' => $clases,
+            'categorias' => $categorias
+        ];
+    
+        return view('administrador.update-clases', $data);
+    }
 
-        return view('administrador.update-clases', ['clases' => $clases]);
+    public function updateclass(Request $request, $id)
+    {
+        Clase::where('id', $id)->update([
+            'id_categoria' => $request->categoria,
+            'instructor' => $request->instructor,
+            'cupos_totales' => $request->cupos_totales,
+            'cupos_disponibles' => $request->cupos_totales,
+            'duracion' => $request->duracion,
+            'fecha_inicio' => $request->fecha_inicio,
+            'hora_inicio' => $request->hora_inicio,
+            'hora_fin' => $request->hora_fin,
+            'costo_inscripcion' => $request->costo_inscripcion,
+            ]);
+
+        return redirect()->route('administrador.clases');
     }
 
     public function deleteclass($id)
