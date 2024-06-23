@@ -3,29 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{asset('css/index-admi.css')}}">
     <title>Clases de Tenis</title>
+    <script>
+        function handleSelectChange(event) {
+            var selectedValue = event.target.value;
+            if (selectedValue) {
+                document.getElementById('redirectForm').action = selectedValue;
+                document.getElementById('redirectForm').submit();
+            }
+        }
+    </script>
 </head>
 <body>
     <header>
-        <a href="{{route('administrador.register-class')}}"><b>Registrar clase de tenis</b></a>
+        <nav>
+            <ul class="ul1">
+                <li><a>Inicio</a></li>
+            </ul>
+            <img src="{{asset('img/Logo Olympues Tennis Camp.jpg')}}" alt="">
+            <ul class="ul2">
+                <li><a href="{{route('administrador.register-class')}}">Registrar clase de tenis</a></li>
+            </ul>
+        </nav>
     </header>
-    <h2>Clases ACTIVAS</h2>
+    <h1>CLASES ACTIVAS</h1>
     <table>
         <thead>
             <tr>
-                <th>ID CLASE</th>
-                <th>CATEGORIA</th>
-                <th>INSTRUCTOR</th>
-                <th>CUPOS TOTALES</th>
-                <th>CUPOS DISPONIBLES</th>
-                <th>DURACIÓN</th>
-                <th>FECHA DE INICIO</th>
-                <th>HORA DE INICIO</th>
-                <th>HORA FIN</th>
-                <th>CONSTO DE INSCRIPCIÓN</th>
-                <th>ESTADO</th>
-                <th></th>
-                <th></th>
+                <th>Id clase</th>
+                <th>Categoria</th>
+                <th>Instructor</th>
+                <th>Cupo totales</th>
+                <th>Cupos disponibles</th>
+                <th>Duración</th>
+                <th>Fecha de inicio</th>
+                <th>Hora de inicio</th>
+                <th>Hora fin</th>
+                <th>Costo de inscripción</th>
+                <th>Estado</th>
                 <th></th>
             </tr>   
         </thead>
@@ -47,33 +63,26 @@
                 <td>
                     <a href="{{route('administrador.desactivar-estado', $clase->id)}}"><button>Desactivar</button></a>
                 </td>
-                <td>
-                    <a href="{{route('administrador.delete-classes', $clase->id)}}"><button>Eliminar</button></a>
-                </td>
-                <td>
-                    <a href="{{route('administrador.edit-class', $clase->id)}}"><button>Editar</button></a>
-                </td>
             </tr>
             @endif
             @endforeach
         </tbody>
     </table>
-    <h2>Clases TERMINADAS</h2>
+    <h1>CLASES TERMINADAS</h1>
     <table>
         <thead>
             <tr>
-                <th>ID CLASE</th>
-                <th>CATEGORIA</th>
-                <th>INSTRUCTOR</th>
-                <th>CUPOS TOTALES</th>
-                <th>CUPOS DISPONIBLES</th>
-                <th>DURACIÓN</th>
-                <th>FECHA DE INICIO</th>
-                <th>HORA DE INICIO</th>
-                <th>HORA FIN</th>
-                <th>CONSTO DE INSCRIPCIÓN</th>
-                <th>ESTADO</th>
-                <th></th>
+                <th>Id clase</th>
+                <th>Categoria</th>
+                <th>Instructor</th>
+                <th>Cupo totales</th>
+                <th>Cupos disponibles</th>
+                <th>Duración</th>
+                <th>Fecha de inicio</th>
+                <th>Hora de inicio</th>
+                <th>Hora fin</th>
+                <th>Costo de inscripción</th>
+                <th>Estado</th>
                 <th></th>
             </tr>   
         </thead>
@@ -93,10 +102,15 @@
                 <td>{{$clase->costo_inscripcion}}</td>
                 <td>{{$clase->estado}}</td>
                 <td>
-                    <a href="{{route('administrador.activar-estado', $clase->id)}}"><button>Activar</button></a>
-                </td>
-                <td>
-                    <a href="{{route('administrador.delete-classes', $clase->id)}}"><button>Eliminar</button></a>
+                    <form id="redirectForm" method="GET">
+                        @csrf
+                        <select onchange="handleSelectChange(event)">
+                            <option>Opciones</option>
+                            <option value="{{route('administrador.activar-estado', $clase->id)}}">Activar</option>
+                            <option value="{{route('administrador.edit-class', $clase->id)}}">Editar</option>
+                            <option value="{{route('administrador.delete-classes', $clase->id)}}">Eliminar</option>
+                        </select>
+                    </form>
                 </td>
             </tr>
             @endif

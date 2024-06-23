@@ -1,6 +1,6 @@
 body {
     font-family: "calibri";
-    background-color: white;
+    background-color: rgb(241, 241, 241);
     display: flex;
     flex-direction: column;
     margin: 0;
@@ -43,8 +43,16 @@ nav ul li a {
     font-size: 16px;
 }
 
+.ul1 {
+    margin-left: 110px;
+}
+
+.ul2 {
+    margin-right: 0px;
+}
+
 table {
-    width: 1100px;
+    width: 1200px;
     margin: 10px auto;
     border-collapse: collapse;
     border-radius: 100px;
@@ -75,9 +83,8 @@ tr:hover {
 }
 
 h1 {
-    font-family: "Helvetica Now", Arial, sans-serif;
-    color: white;
-    font-size: 26px;
+    color: black;
+    font-size: 20px;
     margin-left: 35px;
     margin-top: 25px;
 }
@@ -85,7 +92,7 @@ h1 {
 table button {
     width: 100%;
     font-family: "calibri";
-    background-color: #4a8f00;
+    background-color: #f20c0c;
     color: #ffffff;
     border: none;
     border-radius: 5px;
@@ -95,5 +102,11 @@ table button {
 }
 
 table button:hover {
-    background-color: #8CBF1F;
+    background-color: #F2490C;
+}
+
+select {
+    width: 100%;
+    border: 0px solid #ffffff;
+    border-radius: 10px;
 }
