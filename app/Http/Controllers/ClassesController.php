@@ -45,6 +45,7 @@ class ClassesController extends Controller
             'hora_inicio' => 'required|date_format:H:i',
             'hora_fin' => 'required|date_format:H:i',
             'costo_inscripcion' => 'required|integer|min:0',
+            'descripcion' => 'required|string',
         ]);
 
         if ($validate_class) {
@@ -60,6 +61,7 @@ class ClassesController extends Controller
                 'hora_fin' => $request->hora_fin,
                 'costo_inscripcion' => $request->costo_inscripcion,
                 'estado' => "Activo",
+                'descripcion' => $request->descripcion,
             ]);
 
             return redirect()->route('administrador.clases');
@@ -111,6 +113,7 @@ class ClassesController extends Controller
             'hora_inicio' => $request->hora_inicio,
             'hora_fin' => $request->hora_fin,
             'costo_inscripcion' => $request->costo_inscripcion,
+            'descripcion' => $request->descripcion,
             ]);
 
         return redirect()->route('administrador.clases');

@@ -19,7 +19,7 @@ class ClassesUserController extends Controller
             })
             ->select('clases.id', 'categorias.categoria', 'clases.instructor', 'clases.cupos_totales',
                 'clases.cupos_disponibles', 'clases.duracion', 'clases.fecha_inicio', 'clases.hora_inicio',
-                'clases.hora_fin', 'clases.costo_inscripcion', 'clases.estado');
+                'clases.hora_fin', 'clases.costo_inscripcion', 'clases.estado', 'clases.descripcion');
         
         $clases = $query->get();
 

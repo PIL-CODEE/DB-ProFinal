@@ -135,6 +135,7 @@ table button:hover {
 }
 
 .modal_close {
+    margin-right: auto;
     text-decoration: none;
     color: #fff;
     background-color: #4a8f00;
@@ -151,6 +152,7 @@ table button:hover {
 }
 
 .inscribirse {
+    margin-right: auto;
     margin-top: 10px;
     text-decoration: none;
     color: #fff;

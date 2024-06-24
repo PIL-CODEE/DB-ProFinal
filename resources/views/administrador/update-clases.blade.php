@@ -72,8 +72,8 @@
             </div>
         </div>
         <div>
-            <label for="">Información resumida de la clase: </label>
-            <textarea name="" id=""></textarea>
+            <label for="descripcionInput">Información resumida de la clase: </label>
+            <textarea name="descripcion" id="descripcionInput"></textarea>
         </div>
         <button type="submit"><b>GUARDAR</b></button>
     </form>
