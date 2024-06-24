@@ -92,7 +92,7 @@ h1 {
 table button {
     width: 100%;
     font-family: "calibri";
-    background-color: #f20c0c;
+    background-color: #F25922;
     color: #ffffff;
     border: none;
     border-radius: 5px;
@@ -102,7 +102,7 @@ table button {
 }
 
 table button:hover {
-    background-color: #F2490C;
+    background-color: #ff4400;
 }
 
 select {

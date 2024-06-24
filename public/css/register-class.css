@@ -1,0 +1,140 @@
+body {
+    font-family: "calibri";
+    background-color: rgb(241, 241, 241);
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    width: 100%;
+    background-color: #262626;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    color: white;
+    padding: 0px;
+}
+
+img {
+    width: 80px; 
+}
+
+nav {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+
+.ul1 {
+    margin-left: 1px;
+}
+
+.ul2 {
+    margin-right: 0px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin: 130px center;
+    margin-top: 25px;
+    background-color: rgba(255, 255, 255, 0.863);
+    border-radius: 4px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-gruop {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+}
+
+.input-gruop2 {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+label {
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="date"],
+input[type="time"],
+input[type="number"] {
+    width: 92.5%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+textarea {
+    margin-top: 7px;
+    width: 96%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+button {
+    font-family: "calibri";
+    width: 100%;
+    padding: 10px;
+    background-color: #F25922;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #ff4400;
+}
+
+h2{
+    margin-top: 0px;
+    text-align: center;
+    font-family: "calibri";
+}

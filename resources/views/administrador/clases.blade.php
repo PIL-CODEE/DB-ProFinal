@@ -58,7 +58,7 @@
                 <td>{{$clase->fecha_inicio}}</td>
                 <td>{{$clase->hora_inicio}}</td>
                 <td>{{$clase->hora_fin}}</td>
-                <td>{{$clase->costo_inscripcion}}</td>
+                <td>S/ {{$clase->costo_inscripcion}}</td>
                 <td>{{$clase->estado}}</td>
                 <td>
                     <a href="{{route('administrador.desactivar-estado', $clase->id)}}"><button>Desactivar</button></a>
@@ -99,7 +99,7 @@
                 <td>{{$clase->fecha_inicio}}</td>
                 <td>{{$clase->hora_inicio}}</td>
                 <td>{{$clase->hora_fin}}</td>
-                <td>{{$clase->costo_inscripcion}}</td>
+                <td>S/ {{$clase->costo_inscripcion}}</td>
                 <td>{{$clase->estado}}</td>
                 <td>
                     <form id="redirectForm" method="GET">
