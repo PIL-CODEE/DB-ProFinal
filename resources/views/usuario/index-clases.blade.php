@@ -38,10 +38,6 @@
                 <th>Cupo totales</th>
                 <th>Cupos disponibles</th>
                 <th>Duración</th>
-                <th>Fecha de inicio</th>
-                <th>Hora de inicio</th>
-                <th>Hora fin</th>
-                <th>Costo de inscripción</th>
                 <th></th>
             </tr>   
         </thead>
@@ -54,17 +50,62 @@
                 <td>{{$clase->cupos_totales}}</td>
                 <td>{{$clase->cupos_disponibles}}</td>
                 <td>{{$clase->duracion}}</td>
-                <td>{{$clase->fecha_inicio}}</td>
-                <td>{{$clase->hora_inicio}}</td>
-                <td>{{$clase->hora_fin}}</td>
-                <td>S/ {{$clase->costo_inscripcion}}</td>
                 <td>
-                    <a href="{{route('usuario.inscribirse', $clase->id)}}"><button><b>Inscribirme</b></button></a>
+                    <button class="hero_cta" data-clase-info="{{ json_encode($clase) }}" data-fecha_inicio="{{ $clase->fecha_inicio }}" 
+                    data-hora_inicio="{{ $clase->hora_inicio }}" data-hora_fin="{{ $clase->hora_fin }}" data-costo_inscripcion="{{ $clase->costo_inscripcion }}">
+                        <b>Más Información</b>
+                    </button>
                 </td>
             </tr>
             @endif
             @endforeach
         </tbody>
     </table>
+    <section class="modal">
+        <div class="modal_container">
+            <h2 class="modal_title">INFORMACIÓN DE LA CLASE</h2>
+            <p class="modal_paragraph">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus minus optio, iusto 
+                magnam minima totam ullam necessitatibus quo laudantium dignissimos, atque ad expedita 
+                cum aliquid porro distinctio. Pariatur, omnis quam.</p>
+            <p id="fecha_inicio" class="modal_paragraph"></p>
+            <p id="hora_inicio" class="modal_paragraph"></p>
+            <p id="hora_fin" class="modal_paragraph"></p>
+            <p id="costo_inscripcion" class="modal_paragraph"></p>
+            <a id="inscribirseLink" class="inscribirse"><b>Inscribirme</b></a>
+            <a class="modal_close"><b>Cancelar</b></a>
+        </div>
+    </section>
+    <script>
+        const openModalButtons = document.querySelectorAll('.hero_cta');
+        const modal = document.querySelector('.modal');
+        const inscribirseLink = document.getElementById('inscribirseLink');
+        const closeModal = document.querySelector('.modal_close');
+        const fecha_inicioParagraph = document.getElementById('fecha_inicio');
+        const hora_inicioParagraph = document.getElementById('hora_inicio');
+        const hora_finParagraph = document.getElementById('hora_fin');
+        const costo_inscripcionParagraph = document.getElementById('costo_inscripcion');
+
+        openModalButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const claseInfo = JSON.parse(button.dataset.claseInfo);
+                const fecha_inicio = button.dataset.fecha_inicio;
+                const hora_inicio = button.dataset.hora_inicio;
+                const hora_fin = button.dataset.hora_fin;
+                const costo_inscripcion = button.dataset.costo_inscripcion;
+                inscribirseLink.href = `{{ route('usuario.inscribirse', '') }}/${claseInfo.id}`;
+                fecha_inicioParagraph.textContent = `Fecha de inicio: ${fecha_inicio}`;
+                hora_inicioParagraph.textContent = `Hora de inicio: ${hora_inicio}`;
+                hora_finParagraph.textContent = `Hora de culminación: ${hora_fin}`;
+                costo_inscripcionParagraph.textContent = `Costo de inscripción: S/ ${costo_inscripcion}`;
+                modal.classList.add('modal_show');
+            });
+        });
+
+        closeModal.addEventListener('click', (e)=> {
+            e.preventDefault();
+            modal.classList.remove('modal_show');
+        });
+    </script>
 </body>
 </html>

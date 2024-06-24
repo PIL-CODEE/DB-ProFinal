@@ -44,7 +44,7 @@ nav ul li a {
 }
 
 table {
-    width: 1100px;
+    width: 800px;
     margin: 10px auto;
     border-collapse: collapse;
     border-radius: 100px;
@@ -60,6 +60,7 @@ tbody {
 }
 
 td {
+    text-align: center;
     border: 1px solid #949393;
 }
 
@@ -76,9 +77,9 @@ tr:hover {
 
 h1 {
     font-family: "Helvetica Now", Arial, sans-serif;
-    color: white;
+    color: rgba(255, 255, 255, 0.719);
     font-size: 26px;
-    margin-left: 35px;
+    text-align: center;
     margin-top: 25px;
 }
 
@@ -96,4 +97,78 @@ table button {
 
 table button:hover {
     background-color: #8CBF1F;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #111111bd;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .6s;
+}
+
+.modal_container {
+    margin: auto;
+    width: 70%;
+    max-width: 400px;
+    max-height: 90%;
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.5em 2.5em;
+    place-items: center;
+    grid-template-columns: 100%;
+}
+
+.modal_title {
+    text-align: center;
+    margin-top: 5px;
+    font-size: 1.7em;
+}
+
+.modal_paragraph {
+    margin-bottom: 10px;
+}
+
+.modal_close {
+    text-decoration: none;
+    color: #fff;
+    background-color: #4a8f00;
+    padding: 10px 15px;
+    border-radius: 6px;
+    display: inline-block;
+    font-weight: 300;
+    transition: background-color .3s;
+}
+
+.modal_close:hover {
+    color: #4a8f00;
+    background-color: #fff;
+}
+
+.inscribirse {
+    margin-top: 10px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #4a8f00;
+    padding: 10px 15px;
+    border-radius: 6px;
+    display: inline-block;
+    font-weight: 300;
+    transition: background-color .3s;
+}
+
+.inscribirse:hover {
+    color: #4a8f00;
+    background-color: #fff;
+}
+
+.modal_show {
+    opacity: 1;
+    pointer-events: unset;
+    transition: opacity .6s;
 }
