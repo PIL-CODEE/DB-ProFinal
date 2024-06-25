@@ -24,8 +24,13 @@
             <img src="{{asset('img/Logo Olympues Tennis Camp.jpg')}}" alt="">
             <ul class="nav2">
                 <li><a href="">Ubicación</a></li>
-                <li><a href="#">Iniciar Sesión</a></li>
-                <li><a href="#">Registarse</a></li>
+                @if (Auth::check())
+                    <li><a href="#">Cuenta de {{Auth::user()->name}}</a></li>
+                    <li><a href="{{route('logout')}}">Salir</a></li>
+                @else 
+                    <li><a href="{{route('login')}}">Iniciar Sesión</a></li>
+                    <li><a href="{{route('registro')}}">Registrate</a></li>
+                @endif
             </ul>
         </nav>
     </header>
