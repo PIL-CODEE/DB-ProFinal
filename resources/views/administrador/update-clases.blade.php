@@ -73,7 +73,7 @@
         </div>
         <div>
             <label for="descripcionInput">Información resumida de la clase: </label>
-            <textarea name="descripcion" id="descripcionInput"></textarea>
+            <textarea name="descripcion" id="descripcionInput" required >{{$clase->descripcion}}</textarea>
         </div>
         <button type="submit"><b>GUARDAR</b></button>
     </form>
