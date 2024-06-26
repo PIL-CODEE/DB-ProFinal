@@ -6,6 +6,13 @@
     <title>Registro</title>
     <link rel="stylesheet" href="{{asset('css/register.css')}}">
 </head>
+    <style>
+        body {
+            background-image: url("{{ asset('img/Mantenimiento.jpeg') }}");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
 <body>
     <form method="POST" action="{{route('validate-register')}}">
         <h2>REGÍSTRATE</h2>

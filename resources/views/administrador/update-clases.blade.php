@@ -30,7 +30,7 @@
             <div class="input-gruop">
                 <label for="categoriaInput">Categoria: </label>
                 <select name="categoria" id="categoriaInput">
-                    <option value=""> - </option>
+                    <option value="{{$clase->id_categoria}}">Nueva categoria</option>
                     @foreach ($categorias as $categoria)
                     <option value="{{$categoria->id}}">{{ $categoria->categoria }}</option>
                     @endforeach

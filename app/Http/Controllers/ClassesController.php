@@ -90,7 +90,7 @@ class ClassesController extends Controller
     public function editclass($id)
     {
         $clases = Clase::all()->where('id', $id);
-    
+        
         $categorias = Categoria::all();
         
         $data = [
@@ -103,11 +103,40 @@ class ClassesController extends Controller
 
     public function updateclass(Request $request, $id)
     {
+        $clase = Clase::find($id);
+
+        if ($clase->cupos_disponibles == $clase->cupos_totales) {
+            Clase::where('id', $id)->update([
+                'cupos_disponibles' => $request->cupos_totales,
+            ]);
+        } elseif ($clase->cupos_disponibles < $clase->cupos_totales) {
+            $a = $clase->cupos_totales;
+            $b = $request->cupos_totales;
+            $c = $b - $a;
+
+            $d = $clase->cupos_disponibles;
+            $e = $d + $c;
+
+            Clase::where('id', $id)->update([
+                'cupos_disponibles' => $e,
+            ]);
+        } elseif ($clase->cupos_disponibles > $request->cupos_totales) {
+            $a = $clase->cupos_totales;
+            $b = $request->cupos_totales;
+            $c = $a - $b;
+
+            $d = $clase->cupos_disponibles;
+            $e = $d - $c;
+
+            Clase::where('id', $id)->update([
+                'cupos_disponibles' => $e,
+            ]);
+        };
+
         Clase::where('id', $id)->update([
             'id_categoria' => $request->categoria,
             'instructor' => $request->instructor,
             'cupos_totales' => $request->cupos_totales,
-            'cupos_disponibles' => $request->cupos_totales,
             'duracion' => $request->duracion,
             'fecha_inicio' => $request->fecha_inicio,
             'hora_inicio' => $request->hora_inicio,
