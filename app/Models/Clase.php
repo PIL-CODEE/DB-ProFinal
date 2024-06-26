@@ -26,4 +26,10 @@ class Clase extends Model
     {
         return $this->belongsTo(Categoria::class, 'id_categoria');
     }
+
+    // Definición de la relación con Inscripcion a clases
+    public function inscripcion_clases()
+    {
+        return $this->hasMany(Inscripcion_clase::class, 'id_clase');
+    }
 }

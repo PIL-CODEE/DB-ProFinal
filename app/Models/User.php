@@ -49,6 +49,12 @@ class User extends Authenticatable
     // Definición de la relación con Tipo Usuario
     public function tipo_usuarios()
     {
-        return $this->hasMany(Tipo_usuario::class, 'id_tipo_usuario');
+        return $this->belongsTo(Tipo_usuario::class, 'id_tipo_usuario');
+    }
+
+    // Definición de la relación con Inscripción a clases
+    public function inscripcion_clases()
+    {
+        return $this->hasMany(Inscripcion_clase::class, 'id_usuario');
     }
 }

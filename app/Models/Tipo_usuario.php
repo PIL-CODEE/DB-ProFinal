@@ -14,6 +14,6 @@ class Tipo_usuario extends Model
     // Definición de la relación con User
     public function users()
     {
-        return $this->belongsTo(User::class, 'id_tipo_usuario');
+        return $this->hasMany(User::class, 'id_tipo_usuario');
     }
 }
