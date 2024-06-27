@@ -86,35 +86,33 @@ class TorneosController extends Controller
     public function createtorneo(Request $request)
     {
         // Validar los datos enviados desde un formulario
-        $validate_class = $request->validate([
+        $validate_torneo = $request->validate([
             'categoria' => 'required|integer',
-            'instructor' => 'required|string|max:100',
+            'organizador' => 'required|string|max:100',
+            'nombre_torneo' => 'required|string|max:100',
+            'modalidad' => 'required|string|max:100',
             'cupos_totales' => 'required|integer|min:0|max:100',
-            'duracion' => 'required|string|max:100',
             'fecha_inicio' => 'required|date|after_or_equal:today',
             'hora_inicio' => 'required|date_format:H:i',
-            'hora_fin' => 'required|date_format:H:i',
             'costo_inscripcion' => 'required|integer|min:0',
-            'descripcion' => 'required|string',
         ]);
 
-        if ($validate_class) {
+        if ($validate_torneo) {
 
-            $new_class = Clase::create([
+            $new_torneo = Torneo::create([
                 'id_categoria' => $request->categoria,
-                'instructor' => $request->instructor,
+                'organizador' => $request->organizador,
+                'nombre_torneo' => $request->nombre_torneo,
+                'modalidad' => $request->modalidad,
                 'cupos_totales' => $request->cupos_totales,
                 'cupos_disponibles' => $request->cupos_totales,
-                'duracion' => $request->duracion,
                 'fecha_inicio' => $request->fecha_inicio,
                 'hora_inicio' => $request->hora_inicio,
-                'hora_fin' => $request->hora_fin,
                 'costo_inscripcion' => $request->costo_inscripcion,
                 'estado' => "Activo",
-                'descripcion' => $request->descripcion,
             ]);
 
-            return redirect()->route('administrador.clases');
+            return redirect()->route('administrador.torneos');
         }
 
     }

@@ -23,7 +23,7 @@
             </ul>
             <img src="{{asset('img/Logo Olympues Tennis Camp.jpg')}}" alt="">
             <ul class="ul2">
-                <li><a href="{{route('administrador.register-class')}}">Registrar torneo de tenis</a></li>
+                <li><a href="{{route('administrador.register-torneo')}}">Registrar torneo de tenis</a></li>
             </ul>
         </nav>
     </header>
