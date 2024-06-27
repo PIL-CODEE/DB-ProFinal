@@ -19,7 +19,7 @@
             <ul class="nav1">
                 <li><a href="#">Reservar</a></li>
                 <li><a href="#">Academia Tennis</a></li>
-                <li><a href="#">Torneos</a></li>
+                <li><a href="{{route('usuario.index-torneos')}}">Torneos</a></li>
             </ul>
             <img src="{{asset('img/Logo Olympues Tennis Camp.jpg')}}" alt="">
             <ul class="nav2">

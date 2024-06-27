@@ -22,6 +22,8 @@ Route::post('/modificar_clase/{id}', [ClassesController:: class, 'updateclass'])
 
 Route::get('/inicio', [ClassesUserController:: class, 'indexclass'])->name('usuario.index-clases');
 
+Route::view('/torneos', "usuario.index-torneos")->name('usuario.index-torneos');
+
 Route::middleware('auth')->group(function () {
     Route::get('/realizar_inscripcion/{id}', [ClassesUserController:: class, 'inscripciones'])->name('usuario.inscribirse');
 });
