@@ -59,7 +59,7 @@ class User extends Authenticatable
     }
 
     // Definición de la relación con Inscripción a torneo
-    public function inscripcion_torneo()
+    public function inscripcion_torneos()
     {
         return $this->hasMany(Inscripcion_torneo::class, 'id_usuario');
     }

@@ -23,92 +23,90 @@
             </ul>
             <img src="{{asset('img/Logo Olympues Tennis Camp.jpg')}}" alt="">
             <ul class="ul2">
-                <li><a href="{{route('administrador.register-class')}}">Registrar clase de tenis</a></li>
+                <li><a href="{{route('administrador.register-class')}}">Registrar torneo de tenis</a></li>
             </ul>
         </nav>
     </header>
-    <h1>CLASES ACTIVAS</h1>
+    <h1>TORNEOS ACTIVOS</h1>
     <table>
         <thead>
             <tr>
-                <th>Id clase</th>
+                <th>Id torneo</th>
                 <th>Categoria</th>
-                <th>Instructor</th>
-                <th>Cupo totales</th>
+                <th>Organizador</th>
+                <th>Nombre del torneo</th>
+                <th>Modalidad</th>
+                <th>Cupos totales</th>
                 <th>Cupos disponibles</th>
-                <th>Duración</th>
                 <th>Fecha de inicio</th>
                 <th>Hora de inicio</th>
-                <th>Hora fin</th>
                 <th>Costo de inscripción</th>
                 <th>Estado</th>
                 <th></th>
             </tr>   
         </thead>
         <tbody>
-            @foreach ($clases as $clase)
-            @if ($clase->estado == "Activo")
+            @foreach ($torneos as $torneo)
+            @if ($torneo->estado == "Activo")
             <tr>
-                <td>{{$clase->id}}</td>
-                <td>{{$clase->categoria}}</td>
-                <td>{{$clase->instructor}}</td>
-                <td>{{$clase->cupos_totales}}</td>
-                <td>{{$clase->cupos_disponibles}}</td>
-                <td>{{$clase->duracion}}</td>
-                <td>{{$clase->fecha_inicio}}</td>
-                <td>{{$clase->hora_inicio}}</td>
-                <td>{{$clase->hora_fin}}</td>
-                <td>S/ {{$clase->costo_inscripcion}}</td>
-                <td>{{$clase->estado}}</td>
+                <td>{{$torneo->id}}</td>
+                <td>{{$torneo->categoria}}</td>
+                <td>{{$torneo->organizador}}</td>
+                <td>{{$torneo->nombre_torneo}}</td>
+                <td>{{$torneo->modalidad}}</td>
+                <td>{{$torneo->cupos_totales}}</td>
+                <td>{{$torneo->cupos_disponibles}}</td>
+                <td>{{$torneo->fecha_inicio}}</td>
+                <td>{{$torneo->hora_inicio}}</td>
+                <td>S/ {{$torneo->costo_inscripcion}}</td>
+                <td>{{$torneo->estado}}</td>
                 <td>
-                    <a href="{{route('administrador.desactivar-estado', $clase->id)}}"><button>Desactivar</button></a>
+                    <a href="{{route('administrador.desactivar-estado', $torneo->id)}}"><button>Desactivar</button></a>
                 </td>
             </tr>
             @endif
             @endforeach
         </tbody>
     </table>
-    <h1>CLASES TERMINADAS</h1>
+    <h1>TORNEOS TERMINADOS</h1>
     <table>
         <thead>
             <tr>
-                <th>Id clase</th>
+                <th>Id torneo</th>
                 <th>Categoria</th>
-                <th>Instructor</th>
-                <th>Cupo totales</th>
+                <th>Organizador</th>
+                <th>Nombre del torneo</th>
+                <th>Modalidad</th>
+                <th>Cupos totales</th>
                 <th>Cupos disponibles</th>
-                <th>Duración</th>
                 <th>Fecha de inicio</th>
                 <th>Hora de inicio</th>
-                <th>Hora fin</th>
                 <th>Costo de inscripción</th>
                 <th>Estado</th>
                 <th></th>
             </tr>   
         </thead>
         <tbody>
-            @foreach ($clases as $clase)
-            @if ($clase->estado == "Terminado")
+            @foreach ($torneos as $torneo)
+            @if ($torneo->estado == "Terminado")
             <tr>
-                <td>{{$clase->id}}</td>
-                <td>{{$clase->categoria}}</td>
-                <td>{{$clase->instructor}}</td>
-                <td>{{$clase->cupos_totales}}</td>
-                <td>{{$clase->cupos_disponibles}}</td>
-                <td>{{$clase->duracion}}</td>
-                <td>{{$clase->fecha_inicio}}</td>
-                <td>{{$clase->hora_inicio}}</td>
-                <td>{{$clase->hora_fin}}</td>
-                <td>S/ {{$clase->costo_inscripcion}}</td>
-                <td>{{$clase->estado}}</td>
+                <td>{{$torneo->id}}</td>
+                <td>{{$torneo->categoria}}</td>
+                <td>{{$torneo->organizador}}</td>
+                <td>{{$torneo->nombre_torneo}}</td>
+                <td>{{$torneo->modalidad}}</td>
+                <td>{{$torneo->cupos_totales}}</td>
+                <td>{{$torneo->cupos_disponibles}}</td>
+                <td>{{$torneo->fecha_inicio}}</td>
+                <td>{{$torneo->hora_inicio}}</td>
+                <td>S/ {{$torneo->costo_inscripcion}}</td>
+                <td>{{$torneo->estado}}</td>
                 <td>
                     <form id="redirectForm" method="GET">
                         @csrf
                         <select onchange="handleSelectChange(event)">
                             <option>Opciones</option>
-                            <option value="{{route('administrador.activar-estado', $clase->id)}}">Activar</option>
-                            <option value="{{route('administrador.edit-class', $clase->id)}}">Editar</option>
-                            <option value="{{route('administrador.delete-classes', $clase->id)}}">Eliminar</option>
+ 
                         </select>
                     </form>
                 </td>
@@ -118,11 +116,11 @@
         </tbody>
     </table>
     <h1 class="h11">INSCRIPCIONES</h1>
-    <form method="GET" class="form2" action="{{route('administrador.clases')}}">
+    <form method="GET" class="form2" action="{{route('administrador.torneos')}}">
         <div class="row">
             <div class="input-gruop"> 
-                <label for="idclaseInput">ID de la clase: </label>
-                <input type="text" id="idclaseInput" name="id_clase">
+                <label for="idtorneoInput">ID del torneo: </label>
+                <input type="text" id="idtorneoInput" name="id_torneo">
             </div>
             <div class="input-gruop">
                 <label for="nombreInput">Nombre del inscrito:</label>
@@ -136,15 +134,15 @@
     <table class="table2">
         <thead>
             <tr>
-                <th>ID CLASE</th>
+                <th>ID TORNEO</th>
                 <th>NOMBRE DEL INSCRITO</th>
             </tr>
         </thead>
-        @if (request()->has('id_clase') && trim(request()->input('id_clase')) !== '')
+        @if (request()->has('id_torneo') && trim(request()->input('id_torneo')) !== '')
             <tbody>
                 @foreach ($search_inscrito as $inscrito)
                 <tr>
-                    <td>{{$inscrito->id_clase}}</td>
+                    <td>{{$inscrito->id_torneo}}</td>
                     <td>{{$inscrito->name}}</td>
                 </tr>
                 @endforeach

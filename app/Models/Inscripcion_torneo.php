@@ -13,7 +13,7 @@ class Inscripcion_torneo extends Model
     // Definición de la relación con Torneo
     public function torneos()
     {
-        return $this->belongsTo(Clase::class, 'id_torneo');
+        return $this->belongsTo(Torneo::class, 'id_torneo');
     }
 
     // Definición de la relación con User
