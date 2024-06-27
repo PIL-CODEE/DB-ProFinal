@@ -50,6 +50,10 @@ table {
     border-radius: 100px;
 }
 
+.tabla3 {
+    width: 900px;
+}
+
 th, td {
     padding: 10px;
     text-align: left;
@@ -81,6 +85,7 @@ h1 {
     font-size: 26px;
     text-align: center;
     margin-top: 25px;
+    text-shadow: 0 0 10px rgb(0, 0, 0);
 }
 
 table button {
@@ -173,14 +178,4 @@ table button:hover {
     opacity: 1;
     pointer-events: unset;
     transition: opacity .6s;
-}
-
-
-.title_torneos {
-    color: rgb(255, 255, 255);
-    text-shadow: 0 0 10px rgb(0, 0, 0);
-    font-size: 50px;
-    margin-left: 40px;
-    text-align: left;
-    margin-top: 25px;
 }
