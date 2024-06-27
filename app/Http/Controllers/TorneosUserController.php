@@ -19,7 +19,7 @@ class TorneosUserController extends Controller
                 $join->on('categorias.id', '=', 'torneos.id_categoria');
             })
             ->select('torneos.id', 'categorias.categoria', 'torneos.organizador', 'torneos.nombre_torneo', 'torneos.modalidad', 'torneos.cupos_totales',
-                'torneos.cupos_disponibles', 'torneos.fecha_inicio', 'torneos.hora_inicio', 'torneos.costo_inscripcion', 'torneos.estado');
+                'torneos.cupos_disponibles', 'torneos.fecha_inicio', 'torneos.hora_inicio', 'torneos.costo_inscripcion', 'torneos.estado', 'torneos.descripcion');
         
         $torneos = $query->get();
 

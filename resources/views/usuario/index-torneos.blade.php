@@ -60,7 +60,7 @@
                 <td>
                     <button class="hero_cta" data-clase-info="{{ json_encode($torneo) }}" data-fecha_inicio="{{ $torneo->fecha_inicio }}" 
                     data-hora_inicio="{{ $torneo->hora_inicio }}"  data-costo_inscripcion="{{ $torneo->costo_inscripcion }}"
-                    >
+                    data-descripcion="{{ $torneo->descripcion }}">
                         <b>Más Información</b>
                     </button>
                 </td>
@@ -89,6 +89,7 @@
         const fecha_inicioParagraph = document.getElementById('fecha_inicio');
         const hora_inicioParagraph = document.getElementById('hora_inicio');
         const costo_inscripcionParagraph = document.getElementById('costo_inscripcion');
+        const descripcionParagraph = document.getElementById('descripcion');
 
         openModalButtons.forEach(button => {
             button.addEventListener('click', (e) => {
@@ -97,8 +98,10 @@
                 const fecha_inicio = button.dataset.fecha_inicio;
                 const hora_inicio = button.dataset.hora_inicio;
                 const costo_inscripcion = button.dataset.costo_inscripcion;
+                const descripcion = button.dataset.descripcion;
 
                 inscribirseLink.href = `{{ route('usuario.inscribirse-torneo', '') }}/${claseInfo.id}`;
+                descripcionParagraph.textContent = `${descripcion}`;
                 fecha_inicioParagraph.textContent = `Fecha de inicio: ${fecha_inicio}`;
                 hora_inicioParagraph.textContent = `Hora de inicio: ${hora_inicio}`;
                 costo_inscripcionParagraph.textContent = `Costo de inscripción: S/ ${costo_inscripcion}`;
