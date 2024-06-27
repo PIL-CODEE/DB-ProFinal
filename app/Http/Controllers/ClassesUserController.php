@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Clase;
 use App\Models\Categoria;
+use App\Models\Inscripcion_clase;
 
 class ClassesUserController extends Controller
 {
@@ -28,20 +29,29 @@ class ClassesUserController extends Controller
 
     public function inscripciones($id)
     {
-        // Encuentra la clase por su ID
+        $user = auth()->user();
         $clase = Clase::find($id);
 
-        // Verifica si la clase existe y si hay cupos disponibles
-        if ($clase && $clase->cupos_disponibles > 0) {
-            // Decrementa los cupos disponibles en 1
-            $clase->decrement('cupos_disponibles');
+        $inscrito = Inscripcion_clase::where('id_clase', $id)
+                                    ->where('id_usuario', $user->id)
+                                    ->first();
 
-            return redirect()->route('usuario.index-clases');
+        if ($inscrito) {
+            return response()->json(['error' => 'Ya estas inscrito'], 400);
+        }
 
-        } else {
-            // Opcional: puedes manejar el caso en que no haya cupos disponibles
+        if ($clase->cupos_disponibles <= 0) {
             return response()->json(['error' => 'No hay cupos disponibles'], 400);
         }
+
+        $new_inscrito = Inscripcion_clase::create([
+            'id_clase' => $clase->id,
+            'id_usuario' => $user->id,
+        ]);
+
+        $clase->decrement('cupos_disponibles');
+
+        return redirect()->route('usuario.index-clases');
     }
     
 }

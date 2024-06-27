@@ -52,7 +52,14 @@ nav ul li a {
 }
 
 table {
-    width: 1200px;
+    width: 1250px;
+    margin: 10px auto;
+    border-collapse: collapse;
+    border-radius: 100px;
+}
+
+.table2 {
+    width: 300px;
     margin: 10px auto;
     border-collapse: collapse;
     border-radius: 100px;
@@ -109,4 +116,57 @@ select {
     width: 100%;
     border: 0px solid #ffffff;
     border-radius: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.form2 {
+    display: flex;
+    flex-direction: column;
+    width: 1000px;
+    margin: 10px auto;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-gruop {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+}
+
+.button2 {
+    margin-top: 25px;
+    font-family: "calibri";
+    width: 90%;
+    padding: 5px;
+    background-color: #F25922;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.button2:hover {
+    background-color: #ff4400;
+}
+
+input {
+    width: 90%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #262626;
+    border-radius: 10px;
+}
+
+.h11 {
+    text-align: center;
 }

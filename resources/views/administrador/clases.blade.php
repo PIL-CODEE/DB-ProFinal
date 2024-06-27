@@ -117,5 +117,39 @@
             @endforeach
         </tbody>
     </table>
+    <h1 class="h11">INSCRIPCIONES</h1>
+    <form method="GET" class="form2" action="{{route('administrador.clases')}}">
+        <div class="row">
+            <div class="input-gruop"> 
+                <label for="idclaseInput">ID de la clase: </label>
+                <input type="text" id="idclaseInput" name="id_clase">
+            </div>
+            <div class="input-gruop">
+                <label for="nombreInput">Nombre del inscrito:</label>
+                <input type="text" id="nombreInput" name="nombre_inscrito">
+            </div>
+            <div class="input-gruop">
+                <button type="submit" class="button2">Buscar</button>
+            </div>
+        </div>
+    </form>
+    <table class="table2">
+        <thead>
+            <tr>
+                <th>ID CLASE</th>
+                <th>NOMBRE DEL INSCRITO</th>
+            </tr>
+        </thead>
+        @if (request()->has('id_clase') && trim(request()->input('id_clase')) !== '')
+            <tbody>
+                @foreach ($search_inscrito as $inscrito)
+                <tr>
+                    <td>{{$inscrito->id_clase}}</td>
+                    <td>{{$inscrito->name}}</td>
+                </tr>
+                @endforeach
+        @endif
+            </tbody>
+    </table>
 </body>
 </html>

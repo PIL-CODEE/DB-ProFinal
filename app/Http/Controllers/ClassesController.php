@@ -6,10 +6,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Clase;
 use App\Models\Categoria;
+use App\Models\Inscripcion_clase;
+use App\Models\User;
 
 class ClassesController extends Controller
 {
-    public function indexclass()
+    public function indexclass(Request $request)
     {
         $clases = Clase::all();
 
@@ -23,7 +25,38 @@ class ClassesController extends Controller
         
         $clases = $query->get();
 
-        return view('administrador.clases', ['clases' => $clases]);
+        $busqueda = $request->nombre_inscrito;
+        $id_clase = $request->id_clase;
+        $search_inscrito = collect();
+
+            if ($busqueda == "Todos") {
+
+                $search_inscrito = DB::table('users')
+                ->leftJoin('inscripcion_clases', 'users.id', '=', 'inscripcion_clases.id_usuario')
+                ->where('inscripcion_clases.id_clase', $id_clase)
+                ->select('inscripcion_clases.id_clase', 'users.name')
+                ->get();
+
+            } elseif ($busqueda) {
+
+                $user = User::where('name', $busqueda)->first();
+
+                if ($user) {
+                    $search_inscrito = DB::table('users')
+                        ->leftJoin('inscripcion_clases', 'users.id', '=', 'inscripcion_clases.id_usuario')
+                        ->where('users.id', $user->id)
+                        ->where('inscripcion_clases.id_clase', $id_clase)
+                        ->select('inscripcion_clases.id_clase', 'users.name')
+                        ->get();
+                }
+            };
+
+        $data = [
+            'clases' => $clases,
+            'search_inscrito' => $search_inscrito,
+        ];
+
+        return view('administrador.clases', $data);
     }
 
     public function classcreate()
