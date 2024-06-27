@@ -17,4 +17,10 @@ class Categoria extends Model
     {
         return $this->hasMany(Clase::class, 'id_categoria');
     }
+
+    // Definición de la relación con Torneo
+    public function torneos()
+    {
+        return $this->hasMany(Torneo::class, 'id_categoria');
+    }
 }

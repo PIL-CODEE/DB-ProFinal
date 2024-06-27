@@ -52,9 +52,15 @@ class User extends Authenticatable
         return $this->belongsTo(Tipo_usuario::class, 'id_tipo_usuario');
     }
 
-    // Definición de la relación con Inscripción a clases
+    // Definición de la relación con Inscripción a clase
     public function inscripcion_clases()
     {
         return $this->hasMany(Inscripcion_clase::class, 'id_usuario');
+    }
+
+    // Definición de la relación con Inscripción a torneo
+    public function inscripcion_torneo()
+    {
+        return $this->hasMany(Inscripcion_torneo::class, 'id_usuario');
     }
 }
