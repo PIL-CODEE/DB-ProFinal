@@ -30,6 +30,10 @@ Route::get('/desactivar_torneo/{id}', [TorneosController::class, 'deactivate'])-
 Route::get('/activar_torneo/{id}', [TorneosController::class, 'activate'])->name('administrador.activar-estado');
 Route::get('/registrar_torneo', [TorneosController:: class, 'torneocreate'])->name('administrador.register-torneo');
 Route::post('/crear_torneo', [TorneosController:: class, 'createtorneo'])->name('administrador.create-torneo');
+Route::get('/editar_torneo/{id}', [TorneosController:: class, 'edittorneo'])->name('administrador.edit-torneo');
+Route::post('/modificar_torneo/{id}', [TorneosController:: class, 'updatetorneo'])->name('administrador.update-torneo');
+Route::get('/eliminar_torneo/{id}', [TorneosController::class, 'deletetorneo'])->name('administrador.delete-torneo');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/realizar_inscripcion/{id}', [ClassesUserController:: class, 'inscripciones'])->name('usuario.inscribirse');

@@ -117,5 +117,72 @@ class TorneosController extends Controller
 
     }
 
+    public function edittorneo($id)
+    {
+        $torneos = Torneo::all()->where('id', $id);
+        
+        $categorias = Categoria::all();
+        
+        $data = [
+            'torneos' => $torneos,
+            'categorias' => $categorias
+        ];
+    
+        return view('administrador.update-torneos', $data);
+    }
 
+    public function updatetorneo(Request $request, $id)
+    {
+        $torneo = Torneo::find($id);
+
+        if ($torneo->cupos_disponibles == $torneo->cupos_totales) {
+            Torneo::where('id', $id)->update([
+                'cupos_disponibles' => $request->cupos_totales,
+            ]);
+        } elseif ($torneo->cupos_disponibles < $torneo->cupos_totales) {
+            $a = $torneo->cupos_totales;
+            $b = $request->cupos_totales;
+            $c = $b - $a;
+
+            $d = $torneo->cupos_disponibles;
+            $e = $d + $c;
+
+            Torneo::where('id', $id)->update([
+                'cupos_disponibles' => $e,
+            ]);
+        } elseif ($torneo->cupos_disponibles > $request->cupos_totales) {
+            $a = $torneo->cupos_totales;
+            $b = $request->cupos_totales;
+            $c = $a - $b;
+
+            $d = $torneo->cupos_disponibles;
+            $e = $d - $c;
+
+            Torneo::where('id', $id)->update([
+                'cupos_disponibles' => $e,
+            ]);
+        };
+
+        Torneo::where('id', $id)->update([
+            'id_categoria' => $request->categoria,
+            'organizador' => $request->organizador,
+            'nombre_torneo' => $request->nombre_torneo,
+            'modalidad' => $request->modalidad,
+            'cupos_totales' => $request->cupos_totales,
+            'cupos_disponibles' => $request->cupos_totales,
+            'fecha_inicio' => $request->fecha_inicio,
+            'hora_inicio' => $request->hora_inicio,
+            'costo_inscripcion' => $request->costo_inscripcion,
+            ]);
+
+        return redirect()->route('administrador.torneos');
+    }
+
+    public function deletetorneo($id)
+    {
+        $delete_torneo = Torneo::where('id', $id);
+        $delete_torneo->delete();
+
+        return redirect()->route('administrador.torneos');
+    }
 }

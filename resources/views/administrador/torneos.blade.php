@@ -106,7 +106,9 @@
                         @csrf
                         <select onchange="handleSelectChange(event)">
                             <option>Opciones</option>
- 
+                            <option value="{{route('administrador.activar-estado', $torneo->id)}}">Activar</option>
+                            <option value="{{route('administrador.edit-torneo', $torneo->id)}}">Editar</option>
+                            <option value="{{route('administrador.delete-torneo', $torneo->id)}}">Eliminar</option>
                         </select>
                     </form>
                 </td>
