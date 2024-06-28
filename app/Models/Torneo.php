@@ -16,7 +16,8 @@ class Torneo extends Model
     'fecha_inicio',
     'hora_inicio',
     'costo_inscripcion',
-    'estado'];
+    'estado',
+    'descripcion'];
 
     public $timestamps = false;
 

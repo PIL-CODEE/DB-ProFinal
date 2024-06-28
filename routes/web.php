@@ -15,8 +15,8 @@ Route::get('/logout',[LoginController::class, 'logout'])->name('logout');
 
 Route::get('/', [ClassesController::class, 'indexclass'])->name('administrador.clases');
 Route::get('/eliminar_clase/{id}', [ClassesController::class, 'deleteclass'])->name('administrador.delete-classes');
-Route::get('/desactivar_clase/{id}', [ClassesController::class, 'deactivate'])->name('administrador.desactivar-estado');
-Route::get('/activar_clase/{id}', [ClassesController::class, 'activate'])->name('administrador.activar-estado');
+Route::get('/desactivar_clase/{id}', [ClassesController::class, 'deactivate'])->name('administrador.desactivar-estado-clases');
+Route::get('/activar_clase/{id}', [ClassesController::class, 'activate'])->name('administrador.activar-estado-clases');
 Route::get('/registrar_clase', [ClassesController:: class, 'classcreate'])->name('administrador.register-class');
 Route::post('/crear_clase', [ClassesController:: class, 'createclass'])->name('administrador.create-class');
 Route::get('/editar_clase/{id}', [ClassesController:: class, 'editclass'])->name('administrador.edit-class');

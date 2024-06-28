@@ -35,6 +35,7 @@
         </nav>
     </header>
     <h1 class="title_torneos">TORNEOS</h1>
+ 
     <table  class="tabla3">
         <thead>
             <tr>
@@ -58,11 +59,13 @@
                 <td>{{$torneo->cupos_totales}}</td>
                 <td>{{$torneo->cupos_disponibles}}</td>
                 <td>
-                    <button class="hero_cta" data-clase-info="{{ json_encode($torneo) }}" data-fecha_inicio="{{ $torneo->fecha_inicio }}" 
+                    <button>
+                    <a class="hero_cta" data-clase-info="{{ json_encode($torneo) }}" data-fecha_inicio="{{ $torneo->fecha_inicio }}" 
                     data-hora_inicio="{{ $torneo->hora_inicio }}"  data-costo_inscripcion="{{ $torneo->costo_inscripcion }}"
                     data-descripcion="{{ $torneo->descripcion }}">
                         <b>Más Información</b>
-                    </button>
+                    </a>
+                    </button> 
                 </td>
             </tr>
             @endif

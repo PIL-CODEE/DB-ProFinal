@@ -20,7 +20,7 @@ class TorneosController extends Controller
                 $join->on('categorias.id', '=', 'torneos.id_categoria');
             })
             ->select('torneos.id', 'categorias.categoria', 'torneos.organizador', 'torneos.nombre_torneo', 'torneos.modalidad', 'torneos.cupos_totales',
-                'torneos.cupos_disponibles', 'torneos.fecha_inicio', 'torneos.hora_inicio', 'torneos.costo_inscripcion', 'torneos.estado', 'torneos.descripcion');
+                'torneos.cupos_disponibles', 'torneos.fecha_inicio', 'torneos.hora_inicio', 'torneos.costo_inscripcion', 'torneos.estado');
         
         $torneos = $query->get();
 
@@ -95,7 +95,7 @@ class TorneosController extends Controller
             'fecha_inicio' => 'required|date|after_or_equal:today',
             'hora_inicio' => 'required|date_format:H:i',
             'costo_inscripcion' => 'required|integer|min:0',
-            'descripcion' => 'required|string',
+            'descripcion' => 'nullable|string',
         ]);
 
         if ($validate_torneo) {
@@ -171,7 +171,6 @@ class TorneosController extends Controller
             'nombre_torneo' => $request->nombre_torneo,
             'modalidad' => $request->modalidad,
             'cupos_totales' => $request->cupos_totales,
-            'cupos_disponibles' => $request->cupos_totales,
             'fecha_inicio' => $request->fecha_inicio,
             'hora_inicio' => $request->hora_inicio,
             'costo_inscripcion' => $request->costo_inscripcion,

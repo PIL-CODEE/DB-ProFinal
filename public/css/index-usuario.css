@@ -50,6 +50,31 @@ table {
     border-radius: 100px;
 }
 
+.table_torneos {
+    font-size: 15px;
+    margin-top: -15px;
+    width: 420px;
+}
+
+.container_torneos {
+    margin: auto;
+    width: 70%;
+    max-width: 600px;
+    max-height: 90%;
+    background-color: hsla(0, 0%, 100%, 0.466);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.986);
+    border-radius: 10px;
+    padding: 1em 1.5em;
+    place-items: center;
+}
+
+.title_torneo2 {
+    font-family: "Helvetica Now", Arial, sans-serif;
+    text-align: center;
+    margin-top: 1px;
+    font-size: 2em;
+}
+
 .tabla3 {
     width: 900px;
 }
@@ -167,6 +192,24 @@ table button:hover {
     display: inline-block;
     font-weight: 300;
     transition: background-color .3s;
+}
+
+.info_torneo {
+    margin-left: auto;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #4a8f00;
+    padding: 5px 15px;
+    border-radius: 6px;
+    display: inline-block;
+    font-weight: 300;
+    transition: background-color .3s;
+}
+
+.info_torneo:hover {
+    color: #4a8f00;
+    background-color: rgba(255, 255, 255, 0);
 }
 
 .inscribirse:hover {

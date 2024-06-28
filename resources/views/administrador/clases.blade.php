@@ -61,7 +61,7 @@
                 <td>S/ {{$clase->costo_inscripcion}}</td>
                 <td>{{$clase->estado}}</td>
                 <td>
-                    <a href="{{route('administrador.desactivar-estado', $clase->id)}}"><button>Desactivar</button></a>
+                    <a href="{{route('administrador.desactivar-estado-clases', $clase->id)}}"><button>Desactivar</button></a>
                 </td>
             </tr>
             @endif
@@ -106,7 +106,7 @@
                         @csrf
                         <select onchange="handleSelectChange(event)">
                             <option>Opciones</option>
-                            <option value="{{route('administrador.activar-estado', $clase->id)}}">Activar</option>
+                            <option value="{{route('administrador.activar-estado-clases', $clase->id)}}">Activar</option>
                             <option value="{{route('administrador.edit-class', $clase->id)}}">Editar</option>
                             <option value="{{route('administrador.delete-classes', $clase->id)}}">Eliminar</option>
                         </select>
