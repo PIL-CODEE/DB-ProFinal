@@ -17,6 +17,12 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
+
+        .conteiner_five {
+            background-image: url("{{ asset('img/Canchas.png') }}");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
     </style>
 </head>
 <body>
@@ -83,6 +89,53 @@
                     competencias amistosas, mejora tus habilidades y disfruta de la emoción del 
                     juego en un entorno competitivo y amigable.</p>
                 <a href="" class="a_conteniner_three"><b>Participar en un Torneo</b></a>
+            </div>
+    </div>
+    <div class="conteiner_four roww">
+            <div class="input-gruopp">
+                <p class="p_conteiner_four">_____________________________</p>
+                <h2 class="title_conteiner_two">Canchas de Tenis</h2>
+                <p class="p_conteiner_four">Nos enorgullece ofrecer a nuestros clientes cinco canchas de tenis 
+                    de primera calidad, diseñadas para proporcionar la mejor experiencia de juego posible. 
+                    Cada una de nuestras canchas está equipada con las más modernas instalaciones, asegurando 
+                    un entorno seguro y cómodo para todos los jugadores. ¡No esperes más! Reserva ahora una de 
+                    nuestras canchas y disfruta de una partida de tenis en las mejores condiciones posibles.</p>
+                <a href="" class="a_conteniner_three"><b>Reservar una cancha ¡AHORA!</b></a>
+            </div>
+            <div class="input-gruopp">
+                <img src="{{ asset('img/Canchas de tenis.jpeg') }}" class="img_conteiner_four">
+            </div>
+    </div>
+    <div class="conteiner_five roww">
+            <div class="input-gruopp">
+                <img src="{{ asset('img/Alumnos.jpeg') }}" class="img_conteiner_five">
+            </div>
+            <div class="input-gruopp">
+                <p class="p_conteiner_three">________________________________</p>
+                <h2 class="title_conteiner_five">Academias grupales</h2>
+                <p class="p_conteiner_five">Descubre el placer de aprender y mejorar tu juego con nuestras
+                     clases de tenis. Ofrecemos programas personalizados para todas las edades y niveles de
+                      habilidad, impartidos por entrenadores profesionales con amplia experiencia. 
+                      Ya sea que estés comenzando desde cero o buscando perfeccionar tus técnicas, nuestras 
+                      clases te proporcionarán las herramientas y el apoyo necesarios para alcanzar tus objetivos.</p>
+                <a href="" class="a_conteniner_five"><b>Inscribirme a una Academia grupal</b></a>
+            </div>
+    </div>
+    <div class="conteiner_six roww">
+            <div class="input-gruopp">
+                <img src="{{ asset('img/Logo_2.png') }}" class="img_conteiner_six">
+            </div>
+            <div class="input-gruopp">
+                <h2 class="title_conteiner_six">Ubicanos</h2>
+                <p class="p_conteiner_six">Av. Dolores 125, José Luis Bustamante y Rivero 04002</p>
+            </div>
+            <div class="input-gruopp">
+                <h2 class="title_conteiner_six">Redes</h2>
+                <p class="p_conteiner_six" >Facebook - Instagram</p>
+            </div>
+            <div class="input-gruopp">
+                <p class="p_conteiner_five"></p>
+                <a href="" class="a_conteniner_six"><b>Contactanos</b></a>
             </div>
     </div>
 </body>
