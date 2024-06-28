@@ -35,6 +35,7 @@ Route::get('/editar_torneo/{id}', [TorneosController:: class, 'edittorneo'])->na
 Route::post('/modificar_torneo/{id}', [TorneosController:: class, 'updatetorneo'])->name('administrador.update-torneo');
 Route::get('/eliminar_torneo/{id}', [TorneosController::class, 'deletetorneo'])->name('administrador.delete-torneo');
 
+Route::view('/navegacion', "navegacion");
 
 Route::middleware('auth')->group(function () {
     Route::get('/realizar_inscripcion/{id}', [ClassesUserController:: class, 'inscripciones'])->name('usuario.inscribirse');
